@@ -38,6 +38,22 @@ def save_data(df: pd.DataFrame, filepath:str) -> None:
 #data_path = os.path.join("data", "raw")
 def main():
     try:
+        # data_filepath = r'C:\Users\u350272\Desktop\projectdata\e2eflowdata\water_potability.csv'
+        # params_filepath = r'params.yaml'
+        # raw_data_path = os.path.join("data", "raw")
+        
+        # data = load_data(data_filepath)
+        # test_size = load_params(params_filepath)
+
+        # train_data, test_data = split_data(data, test_size)
+        
+        # # os.makedirs(raw_data_path)
+        # if not os.path.exists(raw_data_path):
+        #     os.makedirs(raw_data_path)
+        
+        # save_data(train_data,os.path.join(raw_data_path,"train_data.csv"))
+        # save_data(test_data,os.path.join(raw_data_path,"test_data.csv"))
+
         data_filepath = r'C:\Users\u350272\Desktop\projectdata\e2eflowdata\water_potability.csv'
         params_filepath = r'params.yaml'
         raw_data_path = os.path.join("data", "raw")
@@ -46,10 +62,11 @@ def main():
         test_size = load_params(params_filepath)
 
         train_data, test_data = split_data(data, test_size)
+        
         # os.makedirs(raw_data_path)
         if not os.path.exists(raw_data_path):
             os.makedirs(raw_data_path)
-
+        
         save_data(train_data,os.path.join(raw_data_path,"train_data.csv"))
         save_data(test_data,os.path.join(raw_data_path,"test_data.csv"))
     except Exception as e:

@@ -1,3 +1,38 @@
+# stages:
+#   data_collection:
+#     cmd: python src/data/data_collection.py
+#     deps:
+#     - src/data/data_collection.py
+#     params:
+#     - data_collection.test_size
+#     outs:
+#     - data/raw
+#   data_preparation:
+#     cmd: python src/data/data_prep.py
+#     deps:
+#     - data/raw
+#     - src/data/data_prep.py
+#     outs:
+#     - data/processed
+#   model_building:
+#     cmd: python src/model/model_building.py
+#     deps:
+#     - data/processed
+#     - src/model/model_building.py
+#     params:
+#     - model_building.n_estimator
+#     outs:
+#     - models/model.pkl
+#   model_eval:
+#     cmd: python src/model/model_eval.py
+#     deps:
+#     - models/model.pkl
+#     - src/model/model_eval.py
+#     metrics:
+#     - reports/metrics.json
+
+
+
 stages:
   data_collection:
     cmd: python src/data/data_collection.py
@@ -7,6 +42,7 @@ stages:
     - data_collection.test_size
     outs:
     - data/raw
+
   data_preparation:
     cmd: python src/data/data_prep.py
     deps:
@@ -14,6 +50,7 @@ stages:
     - src/data/data_prep.py
     outs:
     - data/processed
+
   model_building:
     cmd: python src/model/model_building.py
     deps:
@@ -23,6 +60,7 @@ stages:
     - model_building.n_estimator
     outs:
     - models/model.pkl
+
   model_eval:
     cmd: python src/model/model_eval.py
     deps:
@@ -30,3 +68,5 @@ stages:
     - src/model/model_eval.py
     metrics:
     - reports/metrics.json
+
+
